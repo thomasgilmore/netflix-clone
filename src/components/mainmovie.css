@@ -2,7 +2,15 @@
     width: 100%;
     height: 600px;
     overflow: hidden;
+    position: relative;
 }
+
+.movieTitle {
+    color: white;
+    position: absolute;
+    bottom: 150px;
+    left: 30px;
+}  
 
 .mainMovie {
     width: 100vw;
