@@ -31,11 +31,12 @@ export class API extends Component {
             var i = 0;
 
             if (results[0]) {
-                console.log(results[i].name || results[i].title);
+                // console.log(results[i].name || results[i].title);
+                var movieTitle = results[i].name || results[i].title;
                 var movieBackdrop = "https://image.tmdb.org/t/p/original" + results[i].backdrop_path;
                 var movieId = results[i].id;
                 console.log(movieBackdrop);
-                const movieMain = <MainMovie key={movieId} movieBackdrop={movieBackdrop} />
+                const movieMain = <MainMovie key={movieId} movieTitle={movieTitle} movieBackdrop={movieBackdrop} />
                 movieMains.push(movieMain)
                 i++;
             }
