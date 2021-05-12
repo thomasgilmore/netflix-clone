@@ -25,13 +25,18 @@ export class API extends Component {
             const results = searchResults.results
             console.log(results)
 
-            var movieMain = []
+            var movieMains = []
             var moviesRows = []
 
             var i = 0;
 
             if (results[0]) {
                 console.log(results[i].name || results[i].title);
+                var movieBackdrop = "https://image.tmdb.org/t/p/original" + results[i].backdrop_path;
+                var movieId = results[i].id;
+                console.log(movieBackdrop);
+                const movieMain = <MainMovie key={movieId} movieBackdrop={movieBackdrop} />
+                movieMains.push(movieMain)
                 i++;
             }
 
@@ -47,7 +52,7 @@ export class API extends Component {
             //   const wineRow = <WineRow key={food} food={food} />
             //   wineRows.push(wineRow)
             // })
-            this.setState({main: movieMain})
+            this.setState({main: movieMains})
             this.setState({rows: moviesRows})
           },
           error: (xhr, status, err) => {
@@ -67,6 +72,7 @@ export class API extends Component {
       return (
         <div>
     
+          {this.state.main}
           {this.state.rows}
             
     
