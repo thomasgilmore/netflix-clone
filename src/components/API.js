@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MainMovie from './MainMovie';
-import MovieRow from './MovieRow';
+// import MovieRow from './MovieRow';
 import $ from 'jquery';
 
 require('dotenv').config()

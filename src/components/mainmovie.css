@@ -17,9 +17,9 @@
 }
 
 .buttonMain {
-    position: relative;
-    bottom: 250px;
-    left: -420px;
+    position: absolute;
+    bottom: 125px;
+    left: 80px;
 }
 
 .playButton {
