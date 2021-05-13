@@ -28,10 +28,40 @@
     font-size: 17px;
 }
 
+.playButton:hover {
+    border: rgba(255,255,255,0.75);
+    background-color: rgba(255,255,255,0.75);
+}
+
+.playIcon {
+    margin: -5px 5px 0 0;
+}
+
+.playText {
+    font-size: 20px;
+}
+
+.infoIcon {
+    margin: -5px 5px 0 0;
+}
+
+.infoText {
+    font-size: 20px;
+}
+
 .moreInfoButton {
+    color: white;
+    border: rgba(109,109,110,0.7);
+    background-color: rgba(109,109,110,0.7);
     margin: 0 0 0 5px;
-    padding: 5px 15px;
-    font-size: 17px;
+    padding: 0.5px 15px 3px 11px;
+    font-size: 25px;
+}
+
+.moreInfoButton:hover {
+    color: white;
+    border: rgba(109,109,110,0.4);
+    background-color: rgba(109,109,110,0.4);;
 }
 
 .mainMovie {
