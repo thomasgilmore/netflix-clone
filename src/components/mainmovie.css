@@ -8,9 +8,31 @@
 .movieTitle {
     color: white;
     position: absolute;
-    bottom: 150px;
-    left: 30px;
+    bottom: 200px;
+    left: 75px;
 }  
+
+.movieTitle > h1 {
+    font-size: 100px;
+}
+
+.buttonMain {
+    position: relative;
+    bottom: 250px;
+    left: -420px;
+}
+
+.playButton {
+    margin: 0 5px 0 0;
+    padding: 5px 15px;
+    font-size: 17px;
+}
+
+.moreInfoButton {
+    margin: 0 0 0 5px;
+    padding: 5px 15px;
+    font-size: 17px;
+}
 
 .mainMovie {
     width: 100vw;
