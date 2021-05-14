@@ -36,10 +36,10 @@ export default function Navbar() {
             <div>
                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                     <li className="nav-item">
-                        <a className="nav-link" href="#home"><CgSearch size={25} /></a>
+                        <a className="nav-link search" href="#home"><CgSearch size={25} /></a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link" href="#home">DVD</a>
+                        <a className="nav-link dvd" href="#home">DVD</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="#home"><AiOutlineGift size={27} /></a>
