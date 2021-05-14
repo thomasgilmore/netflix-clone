@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import './api.css';
 import MainMovie from './MainMovie';
-// import MovieRow from './MovieRow';
+import MovieRow from './MovieRow';
 import $ from 'jquery';
 
 require('dotenv').config()
@@ -34,8 +35,9 @@ export class API extends Component {
                 // console.log(results[i].name || results[i].title);
                 var movieTitle = results[i].name || results[i].title;
                 var movieBackdrop = "https://image.tmdb.org/t/p/original" + results[i].backdrop_path;
+                var moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + results[i].poster_path;
                 var movieId = results[i].id;
-                console.log(movieBackdrop);
+                // console.log(movieBackdrop);
                 const movieMain = <MainMovie key={movieId} movieTitle={movieTitle} movieBackdrop={movieBackdrop} />
                 movieMains.push(movieMain)
                 i++;
@@ -43,6 +45,12 @@ export class API extends Component {
 
             for (i = 1; i < results.length; i++) {
                 console.log(results[i].name || results[i].title);
+                movieTitle = results[i].name || results[i].title;
+                movieBackdrop = "https://image.tmdb.org/t/p/original" + results[i].backdrop_path;
+                moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + results[i].poster_path;
+                movieId = results[i].id;
+                const movieRow = <MovieRow key={movieId} movieTitle={movieTitle} moviePoster={moviePoster} />
+                moviesRows.push(movieRow)
             }
 
             // const foodRow = <FoodRow key={pairings} food={pairings} info={text} />
@@ -74,7 +82,12 @@ export class API extends Component {
         <div>
     
           {this.state.main}
-          {this.state.rows}
+          <section className="trendingSection">
+            <h3 className="trendingTitle">Trending Now</h3>
+            <div className="trendingMoviesAndTVShows">
+              {this.state.rows}
+            </div>
+          </section>
             
     
         </div>
