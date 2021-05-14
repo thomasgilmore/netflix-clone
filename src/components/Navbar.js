@@ -9,7 +9,7 @@ import { CgSearch } from "react-icons/cg";
 export default function Navbar() {
     return (
         <div>
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav className="navbar fixed-top navbar-expand-lg">
         <div className="container-fluid">
           <a className="navbar-brand" href="#home" id="home"><img src="https://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" className="netflixLogo" alt="Netflix Logo" /></a>
           <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

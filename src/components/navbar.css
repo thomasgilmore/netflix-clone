@@ -1,3 +1,15 @@
+nav {
+    background: #141414;
+}
+
+a.nav-link {
+    color: #E5E5E5;
+}
+
+.navbar {
+    padding: 0 !important;
+}
+
 .nav-item {
     font-size: 20px;
     margin: 0 5px;
