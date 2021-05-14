@@ -1,0 +1,29 @@
+.trendingSection {
+    color: white;
+    background-color: #141414;
+    text-align: left;
+    padding-top: 30px;
+}
+
+.trendingTitle {
+    margin-left: 54px;
+}
+
+.trendingMoviesAndTVShows {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.trendingMoviesAndTVShows > img:first-child {
+    margin: 15px 15px 15px 54px;
+}
+
+.trendingMoviesAndTVShows > img {
+    margin: 15px;
+    transition: transform .2s;
+}
+
+.trendingMoviesAndTVShows > img:hover {
+    transform: scale(1.1);
+}
