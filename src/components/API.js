@@ -27,7 +27,7 @@ export class API extends Component {
             console.log(results)
 
             var movieMains = []
-            var moviesRows = []
+            var trendingNowMovies = []
 
             var i = 0;
 
@@ -49,8 +49,8 @@ export class API extends Component {
                 movieBackdrop = "https://image.tmdb.org/t/p/original" + results[i].backdrop_path;
                 moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + results[i].poster_path;
                 movieId = results[i].id;
-                const movieRow = <MovieRow key={movieId} movieTitle={movieTitle} moviePoster={moviePoster} />
-                moviesRows.push(movieRow)
+                const movieRow = <MovieRow key={movieId} movieTitle={movieTitle} movieBackdrop={movieBackdrop} />
+                trendingNowMovies.push(movieRow)
             }
 
             // const foodRow = <FoodRow key={pairings} food={pairings} info={text} />
@@ -62,7 +62,7 @@ export class API extends Component {
             //   wineRows.push(wineRow)
             // })
             this.setState({main: movieMains})
-            this.setState({rows: moviesRows})
+            this.setState({trendingNow: trendingNowMovies})
           },
           error: (xhr, status, err) => {
             console.log("Failed to fetch data")
@@ -85,7 +85,7 @@ export class API extends Component {
           <section className="trendingSection">
             <h3 className="trendingTitle">Trending Now</h3>
             <div className="trendingMoviesAndTVShows">
-              {this.state.rows}
+              {this.state.trendingNow}
             </div>
           </section>
             
