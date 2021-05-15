@@ -22,6 +22,8 @@ export class API extends Component {
         const urlString3 = "https://api.themoviedb.org/3/movie/35/similar?api_key=" + process.env.REACT_APP_MOVIE_DB_API + "&language=en-US&page=1";
         const urlString4 = "https://api.themoviedb.org/3/movie/18/similar?api_key=" + process.env.REACT_APP_MOVIE_DB_API + "&language=en-US&page=1";
         const urlString5 = "https://api.themoviedb.org/3/movie/12/similar?api_key=" + process.env.REACT_APP_MOVIE_DB_API + "&language=en-US&page=1";
+        const urlString6 = "https://api.themoviedb.org/3/movie/10770/similar?api_key=" + process.env.REACT_APP_MOVIE_DB_API + "&language=en-US&page=1";
+
 
 
         $.ajax({
@@ -170,6 +172,32 @@ export class API extends Component {
             console.log("Failed to fetch data")
           }
         })
+
+        $.ajax({
+          url: urlString6,
+          success: (searchResults) => {
+            console.log("Fetched data successfully")
+            console.log(searchResults)
+            const results = searchResults.results
+            console.log(results)
+
+            var tvMovies = []
+
+            results.forEach((movie) => {
+              var movieTitle = movie.name || movie.title;
+              var movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+              // var moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + movie.poster_path;
+              var movieId = movie.id;
+              const tvMovie = <MovieRow key={movieId} movieTitle={movieTitle} movieBackdrop={movieBackdrop} />
+              tvMovies.push(tvMovie)
+            })
+     
+            this.setState({tvMovies})
+          },
+          error: (xhr, status, err) => {
+            console.log("Failed to fetch data")
+          }
+        })
       }
     
     //   searchChangeHandler(event) {
@@ -212,6 +240,12 @@ export class API extends Component {
             <h3 className="trendingTitle">Dramas</h3>
             <div className="trendingMoviesAndTVShows">
               {this.state.dramas}
+            </div>
+          </section>
+          <section className="trendingSection">
+            <h3 className="trendingTitle">TV Movies</h3>
+            <div className="trendingMoviesAndTVShows">
+              {this.state.tvMovies}
             </div>
           </section>
     
