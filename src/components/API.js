@@ -21,6 +21,8 @@ export class API extends Component {
         const urlString2 = "https://api.themoviedb.org/3/tv/popular?api_key=" + process.env.REACT_APP_MOVIE_DB_API;
         const urlString3 = "https://api.themoviedb.org/3/movie/35/similar?api_key=" + process.env.REACT_APP_MOVIE_DB_API + "&language=en-US&page=1";
         const urlString4 = "https://api.themoviedb.org/3/movie/18/similar?api_key=" + process.env.REACT_APP_MOVIE_DB_API + "&language=en-US&page=1";
+        const urlString5 = "https://api.themoviedb.org/3/movie/12/similar?api_key=" + process.env.REACT_APP_MOVIE_DB_API + "&language=en-US&page=1";
+
 
         $.ajax({
           url: urlString,
@@ -142,6 +144,32 @@ export class API extends Component {
             console.log("Failed to fetch data")
           }
         })
+
+        $.ajax({
+          url: urlString5,
+          success: (searchResults) => {
+            console.log("Fetched data successfully")
+            console.log(searchResults)
+            const results = searchResults.results
+            console.log(results)
+
+            var adventures = []
+
+            results.forEach((movie) => {
+              var movieTitle = movie.name || movie.title;
+              var movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+              // var moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + movie.poster_path;
+              var movieId = movie.id;
+              const adventure = <MovieRow key={movieId} movieTitle={movieTitle} movieBackdrop={movieBackdrop} />
+              adventures.push(adventure)
+            })
+     
+            this.setState({adventures})
+          },
+          error: (xhr, status, err) => {
+            console.log("Failed to fetch data")
+          }
+        })
       }
     
     //   searchChangeHandler(event) {
@@ -166,6 +194,12 @@ export class API extends Component {
             <h3 className="trendingTitle">Trending Now</h3>
             <div className="trendingMoviesAndTVShows">
               {this.state.trendingNow}
+            </div>
+          </section>
+          <section className="trendingSection">
+            <h3 className="trendingTitle">Adventures</h3>
+            <div className="trendingMoviesAndTVShows">
+              {this.state.adventures}
             </div>
           </section>
           <section className="trendingSection">
