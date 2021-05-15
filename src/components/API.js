@@ -18,6 +18,7 @@ export class API extends Component {
     performSearch() {
         console.log("Perform search using The Movie DB")
         const urlString = "https://api.themoviedb.org/3/trending/all/day?api_key=" + process.env.REACT_APP_MOVIE_DB_API;
+        const urlString2 = "https://api.themoviedb.org/3/tv/popular?api_key=" + process.env.REACT_APP_MOVIE_DB_API;
         $.ajax({
           url: urlString,
           success: (searchResults) => {
@@ -35,7 +36,7 @@ export class API extends Component {
                 // console.log(results[i].name || results[i].title);
                 var movieTitle = results[i].name || results[i].title;
                 var movieBackdrop = "https://image.tmdb.org/t/p/original" + results[i].backdrop_path;
-                var moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + results[i].poster_path;
+                // var moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + results[i].poster_path;
                 var movieId = results[i].id;
                 // console.log(movieBackdrop);
                 const movieMain = <MainMovie key={movieId} movieTitle={movieTitle} movieBackdrop={movieBackdrop} />
@@ -47,22 +48,40 @@ export class API extends Component {
                 console.log(results[i].name || results[i].title);
                 movieTitle = results[i].name || results[i].title;
                 movieBackdrop = "https://image.tmdb.org/t/p/original" + results[i].backdrop_path;
-                moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + results[i].poster_path;
+                // moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + results[i].poster_path;
                 movieId = results[i].id;
                 const movieRow = <MovieRow key={movieId} movieTitle={movieTitle} movieBackdrop={movieBackdrop} />
                 trendingNowMovies.push(movieRow)
             }
 
-            // const foodRow = <FoodRow key={pairings} food={pairings} info={text} />
-            // foodRows.push(foodRow)
-    
-            // results.forEach((food) => {
-            //   console.log(food)
-            //   const wineRow = <WineRow key={food} food={food} />
-            //   wineRows.push(wineRow)
-            // })
             this.setState({main: movieMains})
             this.setState({trendingNow: trendingNowMovies})
+          },
+          error: (xhr, status, err) => {
+            console.log("Failed to fetch data")
+          }
+        })
+
+        $.ajax({
+          url: urlString2,
+          success: (searchResults) => {
+            console.log("Fetched data successfully")
+            console.log(searchResults)
+            const results = searchResults.results
+            console.log(results)
+
+            var netflixOriginals = []
+
+            results.forEach((movie) => {
+              var movieTitle = movie.name || movie.title;
+              // var movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+              var moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + movie.poster_path;
+              var movieId = movie.id;
+              const netflixOriginal = <MovieRow key={movieId} movieTitle={movieTitle} movieBackdrop={moviePoster} />
+              netflixOriginals.push(netflixOriginal)
+            })
+     
+            this.setState({netflixOrginal: netflixOriginals})
           },
           error: (xhr, status, err) => {
             console.log("Failed to fetch data")
@@ -82,6 +101,12 @@ export class API extends Component {
         <div>
     
           {this.state.main}
+          <section className="trendingSection">
+            <h3 className="trendingTitle">Trending Now</h3>
+            <div className="trendingMoviesAndTVShows">
+              {this.state.netflixOrginal}
+            </div>
+          </section>
           <section className="trendingSection">
             <h3 className="trendingTitle">Trending Now</h3>
             <div className="trendingMoviesAndTVShows">
