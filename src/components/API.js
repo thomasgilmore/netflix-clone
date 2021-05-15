@@ -19,6 +19,7 @@ export class API extends Component {
         console.log("Perform search using The Movie DB")
         const urlString = "https://api.themoviedb.org/3/trending/all/day?api_key=" + process.env.REACT_APP_MOVIE_DB_API;
         const urlString2 = "https://api.themoviedb.org/3/tv/popular?api_key=" + process.env.REACT_APP_MOVIE_DB_API;
+        const urlString3 = "https://api.themoviedb.org/3/movie/35/similar?api_key=" + process.env.REACT_APP_MOVIE_DB_API + "&language=en-US&page=1";
         $.ajax({
           url: urlString,
           success: (searchResults) => {
@@ -87,6 +88,32 @@ export class API extends Component {
             console.log("Failed to fetch data")
           }
         })
+
+        $.ajax({
+          url: urlString3,
+          success: (searchResults) => {
+            console.log("Fetched data successfully")
+            console.log(searchResults)
+            const results = searchResults.results
+            console.log(results)
+
+            var comedies = []
+
+            results.forEach((movie) => {
+              var movieTitle = movie.name || movie.title;
+              var movieBackdrop = "https://image.tmdb.org/t/p/original" + movie.backdrop_path;
+              // var moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + movie.poster_path;
+              var movieId = movie.id;
+              const comedy = <MovieRow key={movieId} movieTitle={movieTitle} movieBackdrop={movieBackdrop} />
+              comedies.push(comedy)
+            })
+     
+            this.setState({comedies: comedies})
+          },
+          error: (xhr, status, err) => {
+            console.log("Failed to fetch data")
+          }
+        })
       }
     
     //   searchChangeHandler(event) {
@@ -102,7 +129,7 @@ export class API extends Component {
     
           {this.state.main}
           <section className="trendingSection">
-            <h3 className="trendingTitle">Trending Now</h3>
+            <h3 className="trendingTitle">Netflix Orginals</h3>
             <div className="trendingMoviesAndTVShows">
               {this.state.netflixOrginal}
             </div>
@@ -111,6 +138,12 @@ export class API extends Component {
             <h3 className="trendingTitle">Trending Now</h3>
             <div className="trendingMoviesAndTVShows">
               {this.state.trendingNow}
+            </div>
+          </section>
+          <section className="trendingSection">
+            <h3 className="trendingTitle">Comedies</h3>
+            <div className="trendingMoviesAndTVShows">
+              {this.state.comedies}
             </div>
           </section>
             
