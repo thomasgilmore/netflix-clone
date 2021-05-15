@@ -16,7 +16,7 @@ export class API extends Component {
     }
 
     performSearch() {
-        console.log("Perform search using The Movie DB")
+        // console.log("Perform search using The Movie DB")
         const urlString = "https://api.themoviedb.org/3/trending/all/day?api_key=" + process.env.REACT_APP_MOVIE_DB_API;
         const urlString2 = "https://api.themoviedb.org/3/tv/popular?api_key=" + process.env.REACT_APP_MOVIE_DB_API;
         const urlString3 = "https://api.themoviedb.org/3/movie/35/similar?api_key=" + process.env.REACT_APP_MOVIE_DB_API + "&language=en-US&page=1";
@@ -31,9 +31,9 @@ export class API extends Component {
           url: urlString,
           success: (searchResults) => {
             console.log("Fetched data successfully")
-            console.log(searchResults)
+            // console.log(searchResults)
             const results = searchResults.results
-            console.log(results)
+            // console.log(results)
 
             var movieMains = []
             var trendingNowMovies = []
@@ -53,7 +53,7 @@ export class API extends Component {
             }
 
             for (i = 1; i < results.length; i++) {
-                console.log(results[i].name || results[i].title);
+                // console.log(results[i].name || results[i].title);
                 movieTitle = results[i].name || results[i].title;
                 movieBackdrop = "https://image.tmdb.org/t/p/original" + results[i].backdrop_path;
                 // moviePoster = "https://image.tmdb.org/t/p/w440_and_h660_face" + results[i].poster_path;
@@ -74,9 +74,9 @@ export class API extends Component {
           url: urlString2,
           success: (searchResults) => {
             console.log("Fetched data successfully")
-            console.log(searchResults)
+            // console.log(searchResults)
             const results = searchResults.results
-            console.log(results)
+            // console.log(results)
 
             var netflixOriginals = []
 
@@ -100,9 +100,9 @@ export class API extends Component {
           url: urlString3,
           success: (searchResults) => {
             console.log("Fetched data successfully")
-            console.log(searchResults)
+            // console.log(searchResults)
             const results = searchResults.results
-            console.log(results)
+            // console.log(results)
 
             var comedies = []
 
@@ -126,9 +126,9 @@ export class API extends Component {
           url: urlString4,
           success: (searchResults) => {
             console.log("Fetched data successfully")
-            console.log(searchResults)
+            // console.log(searchResults)
             const results = searchResults.results
-            console.log(results)
+            // console.log(results)
 
             var dramas = []
 
@@ -152,9 +152,9 @@ export class API extends Component {
           url: urlString5,
           success: (searchResults) => {
             console.log("Fetched data successfully")
-            console.log(searchResults)
+            // console.log(searchResults)
             const results = searchResults.results
-            console.log(results)
+            // console.log(results)
 
             var adventures = []
 
@@ -178,9 +178,9 @@ export class API extends Component {
           url: urlString6,
           success: (searchResults) => {
             console.log("Fetched data successfully")
-            console.log(searchResults)
+            // console.log(searchResults)
             const results = searchResults.results
-            console.log(results)
+            // console.log(results)
 
             var tvMovies = []
 
@@ -204,9 +204,9 @@ export class API extends Component {
           url: urlString7,
           success: (searchResults) => {
             console.log("Fetched data successfully")
-            console.log(searchResults)
+            // console.log(searchResults)
             const results = searchResults.results
-            console.log(results)
+            // console.log(results)
 
             var mysteries = []
 
