@@ -239,45 +239,45 @@ export class API extends Component {
         <div>
     
           {this.state.main}
-          <section className="trendingSection">
-            <h3 className="trendingTitle">Netflix Orginals</h3>
-            <div className="trendingMoviesAndTVShows">
+          <section className="netflixOrginalsSection">
+            <h3 className="netflixOrginalsTitle">Netflix Orginals</h3>
+            <div className="netflixOrginalsMoviesAndTVShows">
               {this.state.netflixOrginal}
             </div>
           </section>
-          <section className="trendingSection">
-            <h3 className="trendingTitle">Trending Now</h3>
-            <div className="trendingMoviesAndTVShows">
+          <section className="Section">
+            <h3 className="Title">Trending Now</h3>
+            <div className="MoviesAndTVShows">
               {this.state.trendingNow}
             </div>
           </section>
-          <section className="trendingSection">
-            <h3 className="trendingTitle">Adventures</h3>
-            <div className="trendingMoviesAndTVShows">
+          <section className="Section">
+            <h3 className="Title">Adventures</h3>
+            <div className="MoviesAndTVShows">
               {this.state.adventures}
             </div>
           </section>
-          <section className="trendingSection">
-            <h3 className="trendingTitle">Comedies</h3>
-            <div className="trendingMoviesAndTVShows">
+          <section className="Section">
+            <h3 className="Title">Comedies</h3>
+            <div className="MoviesAndTVShows">
               {this.state.comedies}
             </div>
           </section>
-          <section className="trendingSection">
-            <h3 className="trendingTitle">Dramas</h3>
-            <div className="trendingMoviesAndTVShows">
+          <section className="Section">
+            <h3 className="Title">Dramas</h3>
+            <div className="MoviesAndTVShows">
               {this.state.dramas}
             </div>
           </section>
-          <section className="trendingSection">
-            <h3 className="trendingTitle">Mystery</h3>
-            <div className="trendingMoviesAndTVShows">
+          <section className="Section">
+            <h3 className="Title">Mystery</h3>
+            <div className="MoviesAndTVShows">
               {this.state.mysteries}
             </div>
           </section>
-          <section className="trendingSection">
-            <h3 className="trendingTitle">TV Movies</h3>
-            <div className="trendingMoviesAndTVShows">
+          <section className="Section">
+            <h3 className="Title">TV Movies</h3>
+            <div className="MoviesAndTVShows">
               {this.state.tvMovies}
             </div>
           </section>

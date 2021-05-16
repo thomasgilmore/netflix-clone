@@ -1,29 +1,61 @@
-.trendingSection {
+.netflixOrginalsSection {
     color: white;
     background-color: #141414;
     text-align: left;
     padding-top: 30px;
 }
 
-.trendingTitle {
+.netflixOrginalsTitle {
     margin-left: 54px;
 }
 
-.trendingMoviesAndTVShows {
+.netflixOrginalsMoviesAndTVShows {
     display: flex;
     overflow-x: auto;
     padding: 10px 0;
 }
 
-.trendingMoviesAndTVShows > img:first-child {
-    margin: 15px 15px 15px 54px;
+.netflixOrginalsMoviesAndTVShows > img:first-child {
+    margin: 15px 5px 15px 54px;
 }
 
-.trendingMoviesAndTVShows > img {
-    margin: 15px;
+.netflixOrginalsMoviesAndTVShows > img {
+    margin: 15px 5px;
     transition: transform .2s;
 }
 
-.trendingMoviesAndTVShows > img:hover {
+.netflixOrginalsMoviesAndTVShows > img:hover {
+    transform: scale(1.1);
+}
+
+.Section {
+    color: white;
+    background-color: #141414;
+    text-align: left;
+    padding-top: 30px;
+}
+
+.Title {
+    margin-left: 54px;
+}
+
+.MoviesAndTVShows {
+    display: flex;
+    overflow-x: auto;
+    padding: 2px 0;
+}
+
+.MoviesAndTVShows > img:first-child {
+    border-radius: 5px;
+    margin: 10px 5px 10px 54px;
+}
+
+.MoviesAndTVShows > img {
+    border-radius: 5px;
+    margin: 10px 5px;
+    transition: transform .2s;
+}
+
+.MoviesAndTVShows > img:hover {
     transform: scale(1.1);
 }
