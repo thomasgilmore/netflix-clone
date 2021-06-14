@@ -82,7 +82,7 @@
     .movieTitle {
         position: absolute;
         bottom: 5px;
-        left: 20px;
+        left: 18px;
     }  
     
     .movieTitle > h1 {
@@ -112,7 +112,7 @@
         color: white;
         position: absolute;
         bottom: 65px;
-        left: 30px;
+        left: 19px;
     }  
     
     .movieTitle > h1 {
@@ -122,7 +122,7 @@
     .buttonMain {
         position: absolute;
         bottom: 30px;
-        left: 30px;
+        left: 24px;
         visibility: visible;
     }
     
@@ -189,7 +189,7 @@
         color: white;
         position: absolute;
         bottom: 165px;
-        left: 75px;
+        left: 49px;
     }  
     
     .movieTitle > h1 {
@@ -199,7 +199,7 @@
     .buttonMain {
         position: absolute;
         bottom: 125px;
-        left: 80px;
+        left: 56px;
         visibility: visible;
     }
     
