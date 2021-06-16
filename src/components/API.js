@@ -251,12 +251,7 @@ export class API extends Component {
               {this.state.trendingNow}
             </div>
           </section>
-          <section className="Section">
-            <h3 className="Title">Adventures</h3>
-            <div className="MoviesAndTVShows">
-              {this.state.adventures}
-            </div>
-          </section>
+          
           <section className="Section">
             <h3 className="Title">Comedies</h3>
             <div className="MoviesAndTVShows">
